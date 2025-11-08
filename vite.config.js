@@ -10,6 +10,8 @@ export default defineConfig(({ command, mode }) => {
     plugins: [react()],
     server: {
       port: parseInt(env.VITE_PORT) || 5173,
+      host: '0.0.0.0',
+      allowedHosts: ['ccui.pilotfish21.com', 'localhost', '127.0.0.1'],
       proxy: {
         '/api': `http://localhost:${env.PORT || 3001}`,
         '/ws': {
